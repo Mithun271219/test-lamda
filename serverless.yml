@@ -26,7 +26,7 @@ provider:
 
 functions:
   node-api:
-    handler: index.handler
+    handler: index.mithunTest
     timeout: 30  
     events:
       - http:
