@@ -1,0 +1,47 @@
+service: mithun-test
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  lambdaHashingVersion: "20201221"
+  timeout: 30  
+  region: ap-south-1
+  stage: ${opt:stage, 'testing'}
+  deploymentBucket:
+    name: bucket-lambda-1
+  environment:
+    STAGE: ${opt:stage, 'testing'}
+    REGION: ap-south-1
+    BUCKET_NAME: bucket-lambda-1
+    NODE_ENV: ${opt:stage, 'testing'}
+
+  iam:
+    role:
+      statements:
+        - Effect: "Allow"
+          Action:
+            - "s3:GetObject"
+            - "s3:PutObject"
+          Resource: "arn:aws:s3:::bucket-lambda-1/*"
+
+functions:
+  node-api:
+    handler: index.handler
+    timeout: 30  
+    events:
+      - http:
+          path: /
+          method: GET
+          cors: true
+      - http:
+          path: /get
+          method: GET
+          cors: true
+      - http:
+          path: /hello
+          method: GET
+          cors: true
+      - http:
+          path: /getProduct
+          method: POST
+          cors: true
