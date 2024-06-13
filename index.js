@@ -7,7 +7,7 @@ require("dotenv").config();
 const cors = require('cors')
 app.use(cors())
 
-var NODE_ENV = process.env.NODE_ENV || "development";
+var NODE_ENV = "sfg";
 
 app.use(express.json())
 
