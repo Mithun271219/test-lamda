@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "connect-timeout": "^1.9.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "http": "^0.0.1-security",
+    "nodemon": "^2.0.22",
+    "serverless-http": "^3.2.0",
+    "sls": "^0.1.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.21.5",
+    "nodemon": "^2.0.22",
+    "serverless": "^3.33.0"
+  },
+  "scripts": {
+    "start": "nodemon ."
+  }
+}
